@@ -19,9 +19,18 @@ install:
 
 # SQLX-CLI
 	cargo install sqlx-cli
+create_migrations:
+	sqlx migrate add -r init
+
+migrate-up:
+	sqlx migrate run
+
+migrate-down:
+	sqlx migrate revert
 
 
-	stop_containers:
+
+stop_containers:
 	@echo "Stoping all docker containers..."
 	if [ $$(docker ps -q) ]; then \
 		echo "found and stopped containers..."; \

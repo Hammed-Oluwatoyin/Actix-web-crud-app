@@ -8,7 +8,7 @@ use dotenv::dotenv;
 use routes::health_route::health_checker_handler;
 
 pub struct AppState {
-    db: Pool<Postgres>,
+   pub db: Pool<Postgres>,
 }
 
 #[actix_web::main]
